@@ -2,10 +2,10 @@
     <mat-sidenav-container class="container">
         <mat-sidenav id="cv-side" class="no-scroll" #sidenav [mode]="sideNavMode" [opened]="isDefaultOpen"
             class="sidenav">
-            <div fxHide fxShow.lt-md style="padding: 10px;" fxLayoutAlign="end center">
+            <div fxHide fxShow.lt-md style="padding: 5px;" fxLayoutAlign="end center">
                 <button mat-icon-button="warn" (click)="closeSideNav()"
                     aria-label="Example icon button with a filter list icon">
-                    <mat-icon>chevron_left</mat-icon>
+                    <mat-icon style="color: #ffffff">chevron_left</mat-icon>
                 </button>
             </div>
 
@@ -62,14 +62,25 @@
         <mat-sidenav-content>
             <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start star">
                 <mat-toolbar fxFlex="100">
-                    <button mat-icon-button color="secondary" (click)="sidenav.toggle()">
-                        <mat-icon>menu</mat-icon>
-                    </button>
+                    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+                        <button mat-icon-button color="secondary" (click)="sidenav.toggle()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
 
-                    <button [disabled]="isDownloadDisabled" matTooltip="Download PDF Version" mat-icon-button
-                        color="secondary" (click)="downloadAsPdf()">
-                        <mat-icon>file_download</mat-icon>
-                    </button>
+                        <div fxLayoutAlign="center center">
+                            <button matTooltip="Download compressed pdf" mat-icon-button color="primary"
+                                (click)="downloadFile()">
+                                <mat-icon>file_download</mat-icon>
+                            </button>
+
+                            <button fxHide fxShow.gt-md [disabled]="isDownloadDisabled"
+                                matTooltip="Convert & Download as PDF" mat-icon-button color="primary"
+                                (click)="downloadAsPdf()">
+                                <mat-icon *ngIf="!isDownloadDisabled">picture_as_pdf</mat-icon>
+                                <mat-spinner *ngIf="isDownloadDisabled" diameter=25></mat-spinner>
+                            </button>
+                        </div>
+                    </div>
                 </mat-toolbar>
 
                 <div class="details-container" id="cv-body">
@@ -99,24 +110,68 @@
                             </p>
                         </div>
 
+
                         <h1 fxLayoutAlign="start center">
-                            <mat-icon>school</mat-icon>
-                            <span>Educational degree</span>
+                            <mat-icon>military_tech</mat-icon>
+                            <span>Experiences</span>
                         </h1>
 
                         <mat-divider></mat-divider>
-                        <div class="details-text-container" fxLayout="row">
-                            <div fxFlex="50">
-                                <h2>Bsc in Computer Science and Enginnering (CSE)</h2>
-                                <p style="margin:5px 20px">American International University - Bangladesh (AIUB)</p>
-                                <p style="margin:5px 20px">CGPA : 3.36</p>
-                                <p style="margin:5px 20px">2014-2017</p>
+                        <div class="details-text-container">
+                            <div class="timeline-container">
+                                <div class="timeline">
+                                    <div *ngFor="let item of experineceList" class="single-activity">
+                                        <div fxLayout="row" class="activity-content">
+                                            <div class="icon-container">
+                                                <mat-icon>{{item.Icon}}</mat-icon>
+                                            </div>
+
+                                            <div class="desc-box">
+                                                <h2 fxLayoutAlign="start center">
+                                                    <span>{{item.Title}}</span>
+                                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
+                                                        data-html2canvas-ignore="true">launch
+                                                    </mat-icon>
+                                                </h2>
+                                                <p *ngFor="let text of item.Description">
+                                                    {{text}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div fxFlex="50">
-                                <h2>Higher Secondary/Secondary School Certificate</h2>
-                                <p style="margin:5px 20px">Dhaka Residential Model Collage (DRMC)</p>
-                                <p style="margin:5px 20px">CGPA : 4.20 & 5.00</p>
-                                <p style="margin:5px 20px">2011-2013 & 2009-2011</p>
+                        </div>
+
+                        <h1 fxLayoutAlign="start center">
+                            <mat-icon>task</mat-icon>
+                            <span>Project</span>
+                        </h1>
+
+                        <mat-divider></mat-divider>
+                        <div class="details-text-container">
+                            <div class="timeline-container">
+                                <div class="timeline">
+                                    <div *ngFor="let item of projectList" class="single-activity">
+                                        <div fxLayout="row" class="activity-content">
+                                            <div class="icon-container">
+                                                <mat-icon>{{item.Icon}}</mat-icon>
+                                            </div>
+
+                                            <div class="desc-box">
+                                                <h2 fxLayoutAlign="start center">
+                                                    <span>{{item.Title}}</span>
+                                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
+                                                        data-html2canvas-ignore="true">launch
+                                                    </mat-icon>
+                                                </h2>
+                                                <p *ngFor="let text of item.Description">
+                                                    {{text}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -126,46 +181,46 @@
                         </h1>
 
                         <mat-divider></mat-divider>
-                        <div class="details-text-container" fxLayout="row">
+                        <div class="details-text-container" fxLayout.gt-sm="row" fxLayout="column">
                             <div fxFlex="50">
                                 <h2>Skills</h2>
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Angular</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Angular</p>
                                     <mat-progress-bar class="red-progress" mode="determinate"
                                         [value]="progressBarAnimate.angular">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Javascript</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Javascript</p>
                                     <mat-progress-bar class="cyan-progress" mode="determinate"
                                         [value]="progressBarAnimate.javascript">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">HTML/CSS</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">HTML/CSS</p>
                                     <mat-progress-bar class="pink-progress" mode="determinate"
                                         [value]="progressBarAnimate.htmlCss">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Node</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Node</p>
                                     <mat-progress-bar class="orange-progress" mode="determinate"
                                         [value]="progressBarAnimate.node">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Sql(mySql, Oracle)</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Sql(mySql, Oracle)</p>
                                     <mat-progress-bar class="purple-progress" mode="determinate"
                                         [value]="progressBarAnimate.sql">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Automation(e2e, unit)</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Automation(e2e, unit)</p>
                                     <mat-progress-bar class="yellow-progress" mode="determinate"
                                         [value]="progressBarAnimate.automation">
                                     </mat-progress-bar>
@@ -174,43 +229,43 @@
                             <div fxFlex="50">
                                 <h2>Knowledge</h2>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">C/C++</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">C/C++</p>
                                     <mat-progress-bar class="red-progress" mode="determinate"
                                         [value]="progressBarAnimate.cCP">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">C#/Java</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">C#/Java</p>
                                     <mat-progress-bar class="cyan-progress" mode="determinate"
                                         [value]="progressBarAnimate.cJava">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Shell</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Shell</p>
                                     <mat-progress-bar class="pink-progress" mode="determinate"
                                         [value]="progressBarAnimate.shell">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">OpenGl/Php</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">OpenGl/Php</p>
                                     <mat-progress-bar class="orange-progress" mode="determinate"
                                         [value]="progressBarAnimate.openPhp">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Rest-Api</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Rest-Api</p>
                                     <mat-progress-bar class="purple-progress" mode="determinate"
                                         [value]="progressBarAnimate.rest">
                                     </mat-progress-bar>
                                 </div>
 
-                                <div fxLayout="row" fxLayoutAlign="start center" class="skill-bar-container">
-                                    <p fxFlex="20" style="margin:0px; padding-right: 20px;">Web hosting</p>
+                                <div fxLayout="column" class="skill-bar-container">
+                                    <p fxFlex="20">Web hosting</p>
                                     <mat-progress-bar class="yellow-progress" mode="determinate"
                                         [value]="progressBarAnimate.web">
                                     </mat-progress-bar>
@@ -232,69 +287,6 @@
                             </p>
                         </div>
 
-
-                        <h1 fxLayoutAlign="start center">
-                            <mat-icon>task</mat-icon>
-                            <span>Project</span>
-                        </h1>
-
-                        <mat-divider></mat-divider>
-                        <div class="details-text-container">
-                            <div class="timeline-container">
-                                <div class="timeline">
-                                    <div *ngFor="let item of projectList" class="single-activity">
-                                        <div fxLayout="row" class="activity-content">
-                                            <div class="icon-container">
-                                                <mat-icon>{{item.Icon}}</mat-icon>
-                                            </div>
-
-                                            <div class="desc-box">
-                                                <h2 fxLayoutAlign="start center">
-                                                    <span>{{item.Title}}</span>
-                                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)">launch
-                                                    </mat-icon>
-                                                </h2>
-                                                <p *ngFor="let text of item.Description">
-                                                    {{text}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h1 fxLayoutAlign="start center">
-                            <mat-icon>military_tech</mat-icon>
-                            <span>Experiences</span>
-                        </h1>
-
-                        <mat-divider></mat-divider>
-                        <div class="details-text-container">
-                            <div class="timeline-container">
-                                <div class="timeline">
-                                    <div *ngFor="let item of experineceList" class="single-activity">
-                                        <div fxLayout="row" class="activity-content">
-                                            <div class="icon-container">
-                                                <mat-icon>{{item.Icon}}</mat-icon>
-                                            </div>
-
-                                            <div class="desc-box">
-                                                <h2 fxLayoutAlign="start center">
-                                                    <span>{{item.Title}}</span>
-                                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)">launch
-                                                    </mat-icon>
-                                                </h2>
-                                                <p *ngFor="let text of item.Description">
-                                                    {{text}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <h1 fxLayoutAlign="start center">
                             <mat-icon>auto_stories</mat-icon>
                             <span>Thesis</span>
@@ -304,6 +296,32 @@
                         <div class="details-text-container">
                             <p>Low cost data communication and key based authentication for ambient assisted living</p>
                         </div>
+
+                        <h1 fxLayoutAlign="start center">
+                            <mat-icon>school</mat-icon>
+                            <span>Educational degree</span>
+                        </h1>
+
+                        <mat-divider></mat-divider>
+                        <div class="details-text-container" fxLayout.gt-sm="row" fxLayout="column">
+                            <div fxFlex="50">
+                                <h2>Bsc in Computer Science and Enginnering (CSE)</h2>
+                                <div class="education-degree-text">
+                                    <p>American International University - Bangladesh (AIUB)</p>
+                                    <p>CGPA : 3.36</p>
+                                    <p>2014-2017</p>
+                                </div>
+                            </div>
+                            <div fxFlex="50">
+                                <h2>Higher Secondary/Secondary School Certificate</h2>
+                                <div class="education-degree-text">
+                                    <p>Dhaka Residential Model Collage (DRMC)</p>
+                                    <p>CGPA : 4.20 & 5.00</p>
+                                    <p>2011-2013 & 2009-2011</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

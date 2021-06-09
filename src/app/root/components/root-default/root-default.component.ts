@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -8,10 +9,11 @@ import html2canvas from 'html2canvas';
   templateUrl: './root-default.component.html',
   styleUrls: ['./root-default.component.scss']
 })
-export class RootDefaultComponent implements OnInit {
+export class RootDefaultComponent implements OnInit, AfterViewInit {
+  @ViewChild('sidenav', { static: false }) sidenav;
   isDefaultOpen = true;
   sideNavMode = 'side';
-  isDownloadDisabled = false;
+  isDownloadDisabled = true;
   progressBarAnimate = {
     angular: 0,
     javascript: 0,
@@ -131,10 +133,23 @@ export class RootDefaultComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(
+    private mediaObserver: MediaObserver
+  ) {
+    // tslint:disable-next-line: deprecation
+    this.mediaObserver.media$.subscribe((change: MediaChange) => {
+      if (change.mqAlias === 'xs' || change.mqAlias === 'sm') {
+        this.sideNavMode = 'over';
+        this.isDefaultOpen = false;
+      } else {
+        this.sideNavMode = 'side';
+        this.isDefaultOpen = true;
+      }
+    });
+  }
 
   closeSideNav(): void {
-
+    this.sidenav.close();
   }
 
   downloadAsPdf(): void {
@@ -166,6 +181,10 @@ export class RootDefaultComponent implements OnInit {
     });
   }
 
+  downloadFile(): void {
+    window.open('assets/riadahmedzakir.pdf');
+  }
+
   redreict(link): void {
     window.open(link);
   }
@@ -187,6 +206,12 @@ export class RootDefaultComponent implements OnInit {
       this.progressBarAnimate.rest = 91;
       this.progressBarAnimate.web = 89;
     }, 1000);
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.isDownloadDisabled = false;
+    }, 2000);
   }
 
 }
