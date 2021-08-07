@@ -1,0 +1,305 @@
+<div class="container" fxLayout="column">
+    <div class="navigation-container">
+        <div class="navigation" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.lt-md="center center">
+            <h1>Riad Ahmed Zakir</h1>
+
+            <div fxShow fxHide.lt-md>
+                <a id="profileSelector" (click)="scroolToSection('profile')">Profile</a>
+                <a id="skillsSelector" (click)="scroolToSection('skills')">Skills</a>
+                <a id="toolsSelector" (click)="scroolToSection('tools')">Tools</a>
+                <a id="experienceSelector" (click)="scroolToSection('experience')">Experiences</a>
+                <a id="projectSelector" (click)="scroolToSection('project')">Projects</a>
+                <a id="educationSelector" (click)="scroolToSection('education')">Education</a>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div id="profile" class="profile-container">
+        <img class="background-image-container" src="assets/background.jpg" alt="parallax-img">
+
+        <div class="profile-inner-container">
+            <div class="profile-inner-sub-container" fxLayout="row" fxLayout.lt-md="column">
+                <div class="profile-image" fxFlex="50">
+                    <img src="assets/riad-portrait.jpg" alt="">
+                </div>
+                <div class="profile-details" fxFlex="50">
+                    <div class="quick-access-icons">
+                        <button matTooltip="Download compressed pdf" mat-icon-button color="accent"
+                            (click)="downloadFile()">
+                            <mat-icon>picture_as_pdf</mat-icon>
+                        </button>
+                        <button matTooltip="Swtich to simple view" mat-icon-button color="accent" (click)="route()">
+                            <mat-icon>switch_access_shortcut</mat-icon>
+                        </button>
+                    </div>
+
+                    <h2>Riad Ahmed Zakir</h2>
+                    <h3>Secure Link Service ltd. (SELSIE)</h3>
+                    <h4>Software Engineer</h4>
+
+                    <div class="contact-container">
+                        <h5>Contacts</h5>
+                        <mat-divider></mat-divider>
+
+                        <p fxLayoutAlign="start center">
+                            <mat-icon>call</mat-icon>
+                            +880 1733558934
+                        </p>
+
+                        <p fxLayoutAlign="start center">
+                            <mat-icon>email</mat-icon>
+                            <a href="mailto:zakir.riad@gmail.com">zakir.riad@gmail.com</a>
+                        </p>
+
+                        <p fxLayoutAlign="start center">
+                            <mat-icon>pin_drop</mat-icon>
+                            13/11 Babar road, Block - B, Mohammadpur, Dhaka - 1207
+                        </p>
+
+                        <p fxLayoutAlign="start center">
+                            <mat-icon>celebration</mat-icon>
+                            28 August, 1995
+                        </p>
+
+                        <p fxLayoutAlign="start center">
+                            <mat-icon>sports_esports</mat-icon>
+                            Drawing, Gaming & Playing Basketball
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class='profile-social-media' fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+                <img (click)="openSocial('github')" src="assets/icons/github.svg" alt="">
+                <img (click)="openSocial('linkedin')" src="assets/icons/linkedin.svg" alt="">
+                <img (click)="openSocial('facebook')" src="assets/icons/facebook.svg" alt="">
+                <img (click)="openSocial('website')" src="assets/icons/globe.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-introduction">
+        <h1>Hi, I'm Riad.</h1>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <p>
+                I'm a software engineer with three years of experience in the field of web application development.
+                I have been mainly working on front end development with scalable frameworks, with knowledge of some
+                backend technologies. Adept at agile development process with an urge for scale, performance and
+                architectural elegance. Now looking for opportunities to develop myself and my career by working on
+                different environment and technologies.
+            </p>
+            <p>
+                My job responsibilities mainly include working with front end development but I have acquired enough
+                skills to present myself as a full stack developer as I have had opportunities to oversee projects
+                throughout it's full life cycle.
+            </p>
+        </div>
+    </div>
+
+    <div id="skills">
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Professional Skills</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="skills-inner-container" fxLayout="column" fxLayoutAlign="center center">
+            <div class="skill-inner-sub-container">
+                <h2>Skills</h2>
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Angular</p>
+                    <mat-progress-bar class="progress-100" mode="determinate" [value]="progressBarAnimate.angular">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Javascript</p>
+                    <mat-progress-bar class="progress-80" mode="determinate" [value]="progressBarAnimate.javascript">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">HTML/CSS</p>
+                    <mat-progress-bar class="progress-60" mode="determinate" [value]="progressBarAnimate.htmlCss">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Node</p>
+                    <mat-progress-bar class="progress-40" mode="determinate" [value]="progressBarAnimate.node">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Sql(mySql, Oracle)</p>
+                    <mat-progress-bar class="progress-20" mode="determinate" [value]="progressBarAnimate.sql">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Automation(e2e, unit)</p>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.automation">
+                    </mat-progress-bar>
+                </div>
+            </div>
+
+            <div class="skill-inner-sub-container">
+                <h2>Knowledge</h2>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">C/C++</p>
+                    <mat-progress-bar class="progress-100" mode="determinate" [value]="progressBarAnimate.cCP">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">C#/Java</p>
+                    <mat-progress-bar class="progress-80" mode="determinate" [value]="progressBarAnimate.cJava">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Shell</p>
+                    <mat-progress-bar class="progress-60" mode="determinate" [value]="progressBarAnimate.shell">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">OpenGl/Php</p>
+                    <mat-progress-bar class="progress-40" mode="determinate" [value]="progressBarAnimate.openPhp">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Rest-Api</p>
+                    <mat-progress-bar class="progress-20" mode="determinate" [value]="progressBarAnimate.rest">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <p fxFlex="20">Web hosting</p>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.web">
+                    </mat-progress-bar>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tools">
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Tools</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="tools-inner-container" fxLayout="row" fxLayoutAlign="center center">
+            <div class="tools-inner-sub-container" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <mat-card class="tool-list-chip" *ngFor="let item of toolList" fxFlex="30" fxFlex.lt-md="100">
+                    {{item}}
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience">
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Experiences</h2>
+        </div>
+        <mat-divider></mat-divider>
+
+
+        <div class="experience-timeline-container">
+            <div class="timeline-container" fxLayout="row" fxLayoutAlign="center center">
+                <div class="timeline">
+                    <div *ngFor="let item of experineceList" class="single-activity">
+                        <div fxLayout="row" class="activity-content">
+                            <div class="icon-container">
+                                <mat-icon>{{item.Icon}}</mat-icon>
+                            </div>
+
+                            <div class="desc-box">
+                                <h2 class="desc-box-text" fxLayoutAlign="start center">
+                                    <span>{{item.Title}}</span>
+                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
+                                        data-html2canvas-ignore="true">launch
+                                    </mat-icon>
+                                </h2>
+                                <p class='desc-box-text' *ngFor="let text of item.Description">
+                                    {{text}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project">
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Projects</h2>
+        </div>
+        <mat-divider></mat-divider>
+
+
+        <div class="project-timeline-container">
+            <div class="timeline-container" fxLayout="row" fxLayoutAlign="center center">
+                <div class="timeline">
+                    <div *ngFor="let item of projectList" class="single-activity">
+                        <div fxLayout="row" class="activity-content">
+                            <div class="icon-container">
+                                <mat-icon>{{item.Icon}}</mat-icon>
+                            </div>
+
+                            <div class="desc-box">
+                                <h2 class="desc-box-text" fxLayoutAlign="start center">
+                                    <span>{{item.Title}}</span>
+                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
+                                        data-html2canvas-ignore="true">launch
+                                    </mat-icon>
+                                </h2>
+                                <p class='desc-box-text' *ngFor="let text of item.Description">
+                                    {{text}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="education">
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Educational degree</h2>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="education-container">
+            <div class="education-text-container" fxLayout="column" fxLayoutAlign="center center">
+                <mat-card class="education-sub-container">
+                    <mat-card-content>
+                        <h2>Bsc in Computer Science and Enginnering (CSE)</h2>
+                        <div class="education-degree-text">
+                            <p>American International University - Bangladesh (AIUB)</p>
+                            <p>CGPA : 3.36</p>
+                            <p>2014-2017</p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="education-sub-container">
+                    <mat-card-content>
+                        <h2>Higher Secondary/Secondary School Certificate</h2>
+                        <div class="education-degree-text">
+                            <p>Dhaka Residential Model Collage (DRMC)</p>
+                            <p>CGPA : 4.20 & 5.00</p>
+                            <p>2011-2013 & 2009-2011</p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
