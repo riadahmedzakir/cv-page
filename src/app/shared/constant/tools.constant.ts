@@ -11,5 +11,8 @@ export const ToolList = [
     'IIS',
     'NGINX',
     'Data scarping',
-    'Task automation'
+    'Task automation',
+    'Websocket',
+    'Heroku',
+    'RabbitMQ'
 ];

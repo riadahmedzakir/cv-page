@@ -26,6 +26,40 @@ export const ProjectList = [
         Link: 'https://riadahmedzakir.github.io/genshin-impact-tool/'
     },
     {
+        Title: 'Simple Chatapp',
+        Description: [
+            'A simple chat up using websocket hosted on heroku. To understand the basics of both websocket and how heroku works'
+        ],
+        Icon: 'chat',
+        Link: 'https://simple-websocket-chatapp.herokuapp.com/'
+    },
+    {
+        Title: 'Authetication & Authorization',
+        Description: [
+            'Designing a authentication and authourization microservice using Microsoft IdentityServer4 that implements dynamic multitenant registration.',
+            'Any client can be used to regeister to use the microservice and use future planned generic microservices with the token.',
+            'The project also includes a generic data service'
+        ],
+        Icon: 'done',
+        Link: 'https://github.com/riadahmedzakir/microservice-imp'
+    },
+    {
+        Title: 'Authetication & Authorization Frontend Intregation - Angular',
+        Description: [
+            'Using the Authetication & Authorization (identity) microservice a login and regesitration page from the client side'
+        ],
+        Icon: 'face',
+        Link: 'https://github.com/riadahmedzakir/jwt-token-base-authenticaion'
+    },
+    {
+        Title: 'Event-driven microservice',
+        Description: [
+            'A simple application to understand clean architecture and event driven architecture using RabbitMQ message broker'
+        ],
+        Icon: 'forward_to_inbox',
+        Link: 'https://github.com/riadahmedzakir/rabbitmq-micro-imp'
+    },
+    {
         Title: 'Shopzoon - A eCommerce Solution',
         Description: [
             'A eCommerce website using Java, JSP, JSON, Javascript & Hibernate technology.',
