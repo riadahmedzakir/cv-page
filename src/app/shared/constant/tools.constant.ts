@@ -14,5 +14,6 @@ export const ToolList = [
     'Task automation',
     'Websocket',
     'Heroku',
-    'RabbitMQ'
+    'RabbitMQ',
+    'Firebase'
 ];

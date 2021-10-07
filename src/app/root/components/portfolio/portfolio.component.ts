@@ -32,6 +32,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   progressBarAnimate = {
     angular: 0,
+    react: 0,
     javascript: 0,
     htmlCss: 0,
     mongodb: 0,
@@ -184,6 +185,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
         this.highLightSelectors('skillsSelector');
         setTimeout(() => {
           this.progressBarAnimate.angular = 99;
+          this.progressBarAnimate.react = 85;
           this.progressBarAnimate.javascript = 95;
           this.progressBarAnimate.htmlCss = 98;
           this.progressBarAnimate.mongodb = 90;

@@ -26,6 +26,16 @@ export const ProjectList = [
         Link: 'https://riadahmedzakir.github.io/genshin-impact-tool/'
     },
     {
+        Title: 'Minimalistic slack - React',
+        Description: [
+            'A slack clone that can create user,channel, send private message, add/remove favs, add media using firebase storage, use emoji.',
+            'A stateful application created with react-redux. Using firebase realtime database, firebase hosting, secured with firebase rules.',
+            'Future plans are added to the github page.'
+        ],
+        Icon: 'mark_chat_unread',
+        Link: 'https://react-slack-24c40.web.app/'
+    },
+    {
         Title: 'Simple Chatapp',
         Description: [
             'A simple chat up using websocket hosted on heroku. To understand the basics of both websocket and how heroku works'
