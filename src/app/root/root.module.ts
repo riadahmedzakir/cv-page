@@ -11,14 +11,14 @@ import { MaterialModule } from '../shared/material.module';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RoutingModule } from './route.module';
 import { PortfolioSimpleComponent } from './components/portfolio-simple/portfolio-simple.component';
-
-
+import { RootService } from './services/root.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     RootDefaultComponent,
     PortfolioComponent,
-    PortfolioSimpleComponent
+    PortfolioSimpleComponent,
   ],
   imports: [
     CommonModule,
@@ -27,8 +27,10 @@ import { PortfolioSimpleComponent } from './components/portfolio-simple/portfoli
     FlexLayoutModule,
     MaterialModule,
     NgxParallaxScrollModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule,
   ],
-  bootstrap: [RootDefaultComponent]
+  providers: [RootService],
+  bootstrap: [RootDefaultComponent],
 })
-export class RootModule { }
+export class RootModule {}
