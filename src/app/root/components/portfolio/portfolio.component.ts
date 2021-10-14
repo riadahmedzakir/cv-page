@@ -275,7 +275,16 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
     GitHubCalendar('.calendar', 'riadahmedzakir', {
       responsive: true,
-      tooltips: true
+      tooltips: true,
+    }).then(() => {
+      document
+        .getElementById('user-activity-overview')
+        .querySelectorAll('a')
+        .forEach((elem) => {
+          const currentLink = elem.getAttribute('href');
+          elem.setAttribute('href', 'https://github.com' + currentLink);
+          elem.setAttribute('target', '_blank');
+        });
     });
   }
 
