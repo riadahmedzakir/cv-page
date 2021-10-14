@@ -140,10 +140,10 @@ body {
 // github calendar responsive
 :root {
   --color-calendar-graph-day-bg: #eeeeee;
-  --color-calendar-graph-day-L1-bg: #C996CC;
-  --color-calendar-graph-day-L2-bg: #916BBF;
-  --color-calendar-graph-day-L3-bg: #3D2C8D;
-  --color-calendar-graph-day-L4-bg: #1C0C5B;
+  --color-calendar-graph-day-L1-bg: #c996cc;
+  --color-calendar-graph-day-L2-bg: #916bbf;
+  --color-calendar-graph-day-L3-bg: #3d2c8d;
+  --color-calendar-graph-day-L4-bg: #1c0c5b;
 }
 
 rect.ContributionCalendar-day[data-level="0"] {
@@ -179,6 +179,10 @@ rect.ContributionCalendar-day[data-level="4"] {
   min-height: 243px;
   text-align: center;
   margin: 0 auto;
+}
+
+.position-relative {
+  padding: 10px !important;
 }
 
 .calendar-graph text.wday,
@@ -295,6 +299,17 @@ h2.f4.text-normal.mb-3 {
   float: left;
 }
 #user-activity-overview {
+  // display: none;
+  h5 {
+    font-size: 20px;
+    // font-weight: bold;
+  }
+  svg {
+    display: none;
+  }
+}
+
+.js-activity-overview-graph-container {
   display: none;
 }
 
@@ -311,12 +326,15 @@ h2.f4.text-normal.mb-3 {
   display: none;
   pointer-events: none;
 }
+
 .day-tooltip strong {
   color: #dfe2e5;
 }
+
 .day-tooltip.is-visible {
   display: block;
 }
+
 .day-tooltip:after {
   position: absolute;
   bottom: -10px;

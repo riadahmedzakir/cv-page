@@ -266,12 +266,17 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   }
 
   getGithubActivityGraph(): void {
-    this.rootService
-      .getGithubActivityGraph()
-      .pipe(first())
-      .subscribe((response) => {
-        console.log(response);
-      });
+    // this.rootService
+    //   .getGithubActivityGraph()
+    //   .pipe(first())
+    //   .subscribe((response) => {
+    //     console.log(response);
+    //   });
+
+    GitHubCalendar('.calendar', 'riadahmedzakir', {
+      responsive: true,
+      tooltips: true
+    });
   }
 
   ngAfterViewInit(): void {
@@ -281,9 +286,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.animateSkillBars();
     this.animateToolsCards();
     this.animateEducationCards();
-    // this.getGithubActivityGraph();
-
-    let x = GitHubCalendar('.calendar', 'riadahmedzakir', { responsive: true });
-    console.log(x);
+    this.getGithubActivityGraph();
   }
 }
