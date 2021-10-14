@@ -172,7 +172,7 @@ rect.ContributionCalendar-day[data-level="4"] {
 
 .calendar {
   height: 100%;
-  width: 50%;
+  width: 47vw;
   font-family: Helvetica, arial;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -357,4 +357,40 @@ h2.f4.text-normal.mb-3 {
 text.ContributionCalendar-label {
   fill: #ccc;
   font-size: 11px;
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1366px) {
+}
+
+@media only screen and (max-width: 1280px) {
+  .calendar {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .calendar {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .calendar {
+    width: 95vw;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .calendar {
+    width: 89vw;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .calendar {
+    width: 89vw;
+  }
 }
