@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+// tslint:disable-next-line: ban-types
+declare let gtag: Function;
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AnalyticsService {
+  trackingId: 'UA-196959085-2';
+  analytics;
+
+  constructor(
+    private router: Router
+  ) {
+    gtag('js', new Date());
+    gtag('config', this.trackingId, {
+      send_page_view: false
+    });
+  }
+
+
+  trackPage(pageData?: any): void {
+    gtag('config', this.trackingId,
+      {
+        page_path: this.router.url,
+        page_title: (pageData && pageData.title) ? pageData.title : null
+      }
+    );
+  }
+
+  eventTrack(eventName: string, category: string, label: string, action?: string, value?: string): void {
+    gtag('event', eventName, {
+      event_category: category,
+      event_label: label,
+      value
+    });
+  }
+
+  identify(userId: string, firstName: string, lastName: string): void {
+    this.analytics.identify(userId, {
+      firstName,
+      lastName
+    });
+  }
+}

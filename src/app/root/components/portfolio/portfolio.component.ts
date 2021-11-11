@@ -13,6 +13,7 @@ import { ExperineceList } from './../../../../app/shared/constant/experiences.co
 import { ProjectList } from './../../../../app/shared/constant/projects.constant';
 import { ToolList } from './../../../../app/shared/constant/tools.constant';
 import { RootService } from '../../services/root.service';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -64,7 +65,11 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   projectList = ProjectList;
   toolList = ToolList;
 
-  constructor(private router: Router, private rootService: RootService) {}
+  constructor(
+    private router: Router,
+    private rootService: RootService,
+    private analyticsService: AnalyticsService
+  ) {}
 
   openSocial(type: string): void {
     window.open(this.socialLinks[type], '_blank').focus();
@@ -81,8 +86,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   downloadFile(): void {
     window.open('assets/riadahmedzakir.pdf');
   }
-
-  ngOnInit(): void {}
 
   scroolToSection(type: string): void {
     const element = document.getElementById(type);
@@ -286,6 +289,10 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
           elem.setAttribute('target', '_blank');
         });
     });
+  }
+
+  ngOnInit(): void {
+    this.analyticsService.trackPage({ title: 'Cv page home' });
   }
 
   ngAfterViewInit(): void {

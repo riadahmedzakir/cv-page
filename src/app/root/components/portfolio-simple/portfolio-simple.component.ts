@@ -8,11 +8,12 @@ import html2canvas from 'html2canvas';
 
 import { ExperineceList } from './../../../../app/shared/constant/experiences.constant';
 import { ProjectList } from './../../../../app/shared/constant/projects.constant';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-portfolio-simple',
   templateUrl: './portfolio-simple.component.html',
-  styleUrls: ['./portfolio-simple.component.scss']
+  styleUrls: ['./portfolio-simple.component.scss'],
 })
 export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav', { static: false }) sidenav;
@@ -32,7 +33,7 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
     shell: 0,
     openPhp: 0,
     rest: 0,
-    web: 0
+    web: 0,
   };
 
   projectList = ProjectList;
@@ -40,7 +41,8 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
 
   constructor(
     private mediaObserver: MediaObserver,
-    private router: Router
+    private router: Router,
+    private analyticsService: AnalyticsService
   ) {
     this.mediaObserver.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs' || change.mqAlias === 'sm') {
@@ -63,8 +65,10 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
 
   downloadAsPdf(): void {
     this.isDownloadDisabled = true;
-    html2canvas(document.querySelector(`#cv-body`), { scrollY: -window.scrollY }).then((cvBody) => {
-      html2canvas(document.querySelector(`#cv-side`)).then(cvSide => {
+    html2canvas(document.querySelector(`#cv-body`), {
+      scrollY: -window.scrollY,
+    }).then((cvBody) => {
+      html2canvas(document.querySelector(`#cv-side`)).then((cvSide) => {
         const cvSidePNG = cvSide.toDataURL('image/png');
         const cvBodyPNG = cvBody.toDataURL('image/png');
         const pdf = new jsPDF();
@@ -99,6 +103,8 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.analyticsService.trackPage({ title: 'Cv page home' });
+
     setTimeout(() => {
       this.progressBarAnimate.angular = 99;
       this.progressBarAnimate.javascript = 95;
@@ -122,5 +128,4 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
       this.isDownloadDisabled = false;
     }, 2000);
   }
-
 }
