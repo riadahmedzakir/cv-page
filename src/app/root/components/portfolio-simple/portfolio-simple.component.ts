@@ -9,6 +9,7 @@ import html2canvas from 'html2canvas';
 import { ExperineceList } from './../../../../app/shared/constant/experiences.constant';
 import { ProjectList } from './../../../../app/shared/constant/projects.constant';
 import { AnalyticsService } from '../../services/analytics.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-portfolio-simple',
@@ -42,7 +43,8 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
   constructor(
     private mediaObserver: MediaObserver,
     private router: Router,
-    private analyticsService: AnalyticsService
+    private analyticsService: AnalyticsService,
+    private _snackBar: MatSnackBar
   ) {
     this.mediaObserver.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs' || change.mqAlias === 'sm') {
@@ -102,8 +104,13 @@ export class PortfolioSimpleComponent implements OnInit, AfterViewInit {
     window.open(link);
   }
 
+  showNotUpdatedMessage(message: string): void {
+    this._snackBar.open(message, 'Understood');
+  }
+
   ngOnInit(): void {
     this.analyticsService.trackPage({ title: 'Cv page home' });
+    this.showNotUpdatedMessage('The simplified version maynot be  up-to-date. Please check the main page for current informations');
 
     setTimeout(() => {
       this.progressBarAnimate.angular = 99;

@@ -44,12 +44,15 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     node: 0,
     sql: 0,
     automation: 0,
+    flutter: 0,
+    spring: 0,
     cCP: 0,
     cJava: 0,
     shell: 0,
     openPhp: 0,
     rest: 0,
     web: 0,
+    systemDesign: 0,
   };
 
   navigationSelectors = [
@@ -239,6 +242,8 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
             this.progressBarAnimate.node = 95;
             this.progressBarAnimate.sql = 85;
             this.progressBarAnimate.automation = 87;
+            this.progressBarAnimate.flutter = 85;
+            this.progressBarAnimate.spring = 90;
 
             this.progressBarAnimate.cCP = 70;
             this.progressBarAnimate.cJava = 55;
@@ -246,6 +251,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
             this.progressBarAnimate.openPhp = 52;
             this.progressBarAnimate.rest = 91;
             this.progressBarAnimate.web = 89;
+            this.progressBarAnimate.systemDesign = 70;
           }, 500);
         }
       },
