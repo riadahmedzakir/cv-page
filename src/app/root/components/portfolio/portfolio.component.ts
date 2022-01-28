@@ -53,6 +53,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     rest: 0,
     web: 0,
     systemDesign: 0,
+    dotNet: 0,
   };
 
   navigationSelectors = [
@@ -244,9 +245,10 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
             this.progressBarAnimate.automation = 87;
             this.progressBarAnimate.flutter = 85;
             this.progressBarAnimate.spring = 90;
+            this.progressBarAnimate.dotNet = 87;
 
             this.progressBarAnimate.cCP = 70;
-            this.progressBarAnimate.cJava = 55;
+            this.progressBarAnimate.cJava = 85;
             this.progressBarAnimate.shell = 60;
             this.progressBarAnimate.openPhp = 52;
             this.progressBarAnimate.rest = 91;

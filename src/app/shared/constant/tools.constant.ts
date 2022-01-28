@@ -1,22 +1,86 @@
 export const ToolList = [
-  'Docker',
-  'Kubernetes',
-  'CI/CD (Travis-CI / Jenkins)',
-  'Amazon web service (AWS)',
-  'Vs studio',
-  'Postman / Insomnia',
-  'Source control',
-  'Photoshop',
-  'VPS',
-  'IIS',
-  'NGINX',
-  'Data scarping',
-  'Task automation',
-  'Websocket',
-  'Heroku',
-  'RabbitMQ',
-  'Firebase',
-  'Eureka Discovery',
-  'Spring Boot Api Gateway',
-  'Redis/ MongoDb'
+  {
+    Name: 'Docker',
+    Icons: ['docker.svg'],
+  },
+  {
+    Name: 'Kubernetes',
+    Icons: ['kubernetes.svg'],
+  },
+  {
+    Name: 'CI/CD (Travis-CI / Jenkins)',
+    Icons: ['travis-ci.svg', 'jenkins.svg'],
+  },
+  {
+    Name: 'Amazon web service (AWS)',
+    Icons: ['aws.svg'],
+  },
+  {
+    Name: 'Vs studio',
+    Icons: ['visual-studio.svg', 'visual-studio-code.svg'],
+  },
+  {
+    Name: 'Postman / Insomnia',
+    Icons: ['postman.svg', 'insomnia.svg'],
+  },
+  {
+    Name: 'Source control',
+    Icons: ['git.svg', 'bitbucket.svg', 'git-kraken.svg', 'source-tree.svg'],
+  },
+  {
+    Name: 'Photoshop',
+    Icons: ['photoshop.svg'],
+  },
+  {
+    Name: 'VPS',
+    Icons: ['server.svg'],
+  },
+  {
+    Name: 'NGINX',
+    Icons: ['nginx.svg'],
+  },
+  {
+    Name: 'IIS',
+    Icons: ['windows.svg'],
+  },
+  {
+    Name: 'Data scraping',
+    Icons: ['spider.svg'],
+  },
+  {
+    Name: 'Task Automation',
+    Icons: ['tasks.svg'],
+  },
+  {
+    Name: 'Websocket',
+    Icons: ['websocket.svg'],
+  },
+  {
+    Name: 'Heroku',
+    Icons: ['heroku.svg'],
+  },
+  {
+    Name: 'RabbitMQ',
+    Icons: ['rabbitmq.svg'],
+  },
+  {
+    Name: 'Firebase',
+    Icons: ['firebase.svg'],
+  },
+  {
+    Name: 'Eureka Discovery',
+    Icons: ['spring.svg', 'java.svg'],
+  },
+  {
+    Name: 'Spring Boot Api Gateway',
+    Icons: ['spring.svg', 'java.svg'],
+  },
+  {
+    Name: 'Redis',
+    Icons: ['redis.svg'],
+  },
+  {
+    Name: 'MongoDb',
+    Icons: ['mongodb.png'],
+  },
 ];

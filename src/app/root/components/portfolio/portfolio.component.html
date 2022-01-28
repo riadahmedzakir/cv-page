@@ -25,8 +25,7 @@
                 </div>
                 <div class="profile-details" fxFlex="50">
                     <div class="quick-access-icons">
-                        <button matTooltip="Download compressed pdf" mat-icon-button color="accent"
-                            (click)="downloadFile()">
+                        <button matTooltip="Download compressed pdf" mat-icon-button color="accent" (click)="downloadFile()">
                             <mat-icon>picture_as_pdf</mat-icon>
                         </button>
                         <button matTooltip="Swtich to simple view" mat-icon-button color="accent" (click)="route()">
@@ -82,32 +81,27 @@
         <h1>Hi, I'm Riad.</h1>
         <div fxLayout="column" fxLayoutAlign="center center">
             <p>
-                I'm a software engineer with three years of experience in the field of web application development.
-                I have been mainly working on front end development with scalable frameworks, with knowledge of some
-                backend technologies. Adept at agile development process with an urge for scale, performance and
-                architectural elegance. Now looking for opportunities to develop myself and my career by working on
-                different environment and technologies.
+                I'm a software engineer with three years of experience in the field of web application development. I have been mainly working on front end development with scalable frameworks, with knowledge of some backend technologies. Adept at agile development process
+                with an urge for scale, performance and architectural elegance. Now looking for opportunities to develop myself and my career by working on different environment and technologies.
             </p>
             <p>
-                My job responsibilities mainly include working with front end development but I have acquired enough
-                skills to present myself as a full stack developer as I have had opportunities to oversee projects
-                throughout it's full life cycle.
+                My job responsibilities mainly include working with front end development but I have acquired enough skills to present myself as a full stack developer as I have had opportunities to oversee projects throughout it's full life cycle.
             </p>
         </div>
     </div>
 
     <div id="github-chart">
-      <mat-divider></mat-divider>
-      <div class='header-container' fxLayoutAlign="center center">
-          <h2>Github contributions</h2>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="github-chart-inner-container" fxLayout="column" fxLayoutAlign="center center">
-        <!-- <img src="https://ghchart.rshah.org/409ba5/riadahmedzakir" alt="$Ilv3R's Github Chart" /> -->
-          <div class="calendar">
-            <!-- Loading stuff -->
-          </div>
-      </div>
+        <mat-divider></mat-divider>
+        <div class='header-container' fxLayoutAlign="center center">
+            <h2>Github contributions</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="github-chart-inner-container" fxLayout="column" fxLayoutAlign="center center">
+            <!-- <img src="https://ghchart.rshah.org/409ba5/riadahmedzakir" alt="$Ilv3R's Github Chart" /> -->
+            <div class="calendar">
+                <!-- Loading stuff -->
+            </div>
+        </div>
     </div>
 
     <div id="skills">
@@ -120,103 +114,182 @@
             <div class="skill-inner-sub-container">
                 <h2>Skills</h2>
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Angular</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Angular</p>
+                        <img class="generic-logo-size" src="assets/icons/angular.svg">
+                    </div>
                     <mat-progress-bar class="progress-100" mode="determinate" [value]="progressBarAnimate.angular">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">React</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">React</p>
+                        <img class="generic-logo-size" src="assets/icons/react.svg">
+                    </div>
                     <mat-progress-bar class="progress-100" mode="determinate" [value]="progressBarAnimate.angular">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Javascript</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Javascript</p>
+                        <img class="generic-logo-size" src="assets/icons/javascript.svg">
+                    </div>
                     <mat-progress-bar class="progress-80" mode="determinate" [value]="progressBarAnimate.javascript">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">HTML/CSS</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">HTML/CSS/SASS</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/html.svg">
+                            <img class="generic-logo-size" src="assets/icons/css.svg">
+                            <img class="generic-logo-size" src="assets/icons/sass.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-60" mode="determinate" [value]="progressBarAnimate.htmlCss">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Node</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Node</p>
+                        <img class="generic-logo-size" src="assets/icons/node.svg">
+                    </div>
                     <mat-progress-bar class="progress-40" mode="determinate" [value]="progressBarAnimate.node">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Sql(mySql, Oracle)</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Sql(mySql, Oracle)</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/mysql.svg">
+                            <img class="generic-logo-size-reactangle" src="assets/icons/oracle.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-20" mode="determinate" [value]="progressBarAnimate.sql">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Automation(e2e, unit)</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Automation(e2e, unit)</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/karma.svg">
+                            <img class="generic-logo-size" src="assets/icons/cypress.svg">
+                            <img class="generic-logo-size" src="assets/icons/selenium.svg">
+                            <img class="generic-logo-size" src="assets/icons/protactor.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.automation">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                  <p fxFlex="20">Flutter</p>
-                  <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.flutter">
-                  </mat-progress-bar>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Flutter</p>
+                        <img class="generic-logo-size" src="assets/icons/flutter.svg">
+                    </div>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.flutter">
+                    </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                  <p fxFlex="20">Spring</p>
-                  <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.spring">
-                  </mat-progress-bar>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Spring boot</p>
+                        <img class="generic-logo-size" src="assets/icons/spring.svg">
+                    </div>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.spring">
+                    </mat-progress-bar>
+                </div>
+
+                <div fxLayout="column" class="skill-bar-container">
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">.NET</p>
+                        <img class="generic-logo-size" src="assets/icons/dotnet.svg">
+                    </div>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.dotNet">
+                    </mat-progress-bar>
                 </div>
             </div>
 
             <div class="skill-inner-sub-container">
+                <mat-divider></mat-divider>
                 <h2>Knowledge</h2>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">C/C++</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">C/C++</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/c.svg">
+                            <img class="generic-logo-size" src="assets/icons/c++.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-100" mode="determinate" [value]="progressBarAnimate.cCP">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">C#/Java</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">C#/Java</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/c-sharp.svg">
+                            <img class="generic-logo-size" src="assets/icons/java.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-80" mode="determinate" [value]="progressBarAnimate.cJava">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Shell</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Shell</p>
+                        <img class="generic-logo-size" src="assets/icons/bash.svg">
+                    </div>
                     <mat-progress-bar class="progress-60" mode="determinate" [value]="progressBarAnimate.shell">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">OpenGl/Php</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">php/Wordpress</p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <img class="generic-logo-size" src="assets/icons/php.svg">
+                            <img class="generic-logo-size" src="assets/icons/wordpress.svg">
+                        </div>
+                    </div>
                     <mat-progress-bar class="progress-40" mode="determinate" [value]="progressBarAnimate.openPhp">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Rest-Api</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Rest-Api</p>
+                        <img class="generic-logo-size" src="assets/icons/swagger.svg">
+                    </div>
                     <mat-progress-bar class="progress-20" mode="determinate" [value]="progressBarAnimate.rest">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                    <p fxFlex="20">Web hosting</p>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">Web hosting</p>
+                        <img class="generic-logo-size" src="assets/icons/server.svg">
+                    </div>
                     <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.web">
                     </mat-progress-bar>
                 </div>
 
                 <div fxLayout="column" class="skill-bar-container">
-                  <p fxFlex="20">System Design</p>
-                  <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.systemDesign">
-                  </mat-progress-bar>
+                    <div style="margin-bottom: 10px;" fxLayout="row" fxLayoutAlign="space-between center">
+                        <p style="margin: 0px;">System Design</p>
+                        <img class="generic-logo-size" src="assets/icons/system-design.png">
+                    </div>
+                    <mat-progress-bar class="progress-10" mode="determinate" [value]="progressBarAnimate.systemDesign">
+                    </mat-progress-bar>
                 </div>
             </div>
         </div>
@@ -231,7 +304,13 @@
         <div class="tools-inner-container" fxLayout="row" fxLayoutAlign="center center">
             <div class="tools-inner-sub-container" fxLayout="row wrap" fxLayoutAlign="space-between center">
                 <mat-card class="tool-list-chip" *ngFor="let item of toolList" fxFlex="30" fxFlex.lt-md="100">
-                    {{item}}
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <img *ngFor="let icon of item.Icons" class="tool-list-chip-icon" src="assets/icons/{{icon}}">
+                    </div>
+                    <mat-divider inset></mat-divider>
+                    <div style="margin-top: 10px;">
+                        {{item.Name}}
+                    </div>
                 </mat-card>
             </div>
         </div>
@@ -257,8 +336,7 @@
                             <div class="desc-box">
                                 <h2 class="desc-box-text" fxLayoutAlign="start center">
                                     <span>{{item.Title}}</span>
-                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
-                                        data-html2canvas-ignore="true">launch
+                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
                                     </mat-icon>
                                 </h2>
                                 <p class='desc-box-text' *ngFor="let text of item.Description">
@@ -292,8 +370,7 @@
                             <div class="desc-box">
                                 <h2 class="desc-box-text" fxLayoutAlign="start center">
                                     <span>{{item.Title}}</span>
-                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)"
-                                        data-html2canvas-ignore="true">launch
+                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
                                     </mat-icon>
                                 </h2>
                                 <p class='desc-box-text' *ngFor="let text of item.Description">
