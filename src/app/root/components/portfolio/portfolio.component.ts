@@ -161,13 +161,30 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
         if (entries[0]['intersectionRatio'] >= 0.1) {
           const activityContents = document
             .getElementById('experience')
-            .querySelectorAll('.desc-box-text');
-          _forEach(activityContents, (content) => {
-            content.classList.add(
-              'animate__animated',
-              'animate__fadeInRight',
-              'animate__slower'
-            );
+            .querySelectorAll('.desc-box-contents');
+          const activityContentsIcons = document
+            .getElementById('experience')
+            .querySelectorAll('.icon-container');
+
+          _forEach(activityContents, (content, index) => {
+            setTimeout(() => {
+              content.style.visibility = 'visible';
+              content.classList.add(
+                'animate__animated',
+                'animate__fadeInRight',
+                'animate__slower'
+              );
+            }, 1000 * index);
+          });
+
+          _forEach(activityContentsIcons, (content, index) => {
+            setTimeout(() => {
+              content.classList.add(
+                'animate__animated',
+                'animate__bounce',
+                'animate__slower'
+              );
+            }, 1000 * index);
           });
         }
       },
@@ -180,24 +197,39 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   animateProjectTimeline(): void {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]['intersectionRatio'] >= 0.5) {
-          this.highLightSelectors('projectSelector');
-        }
 
         if (entries[0]['intersectionRatio'] >= 0.1) {
+          this.highLightSelectors('projectSelector');
           const activityContents = document
             .getElementById('project')
-            .querySelectorAll('.desc-box-text');
-          _forEach(activityContents, (content) => {
-            content.classList.add(
-              'animate__animated',
-              'animate__fadeInRight',
-              'animate__slower'
-            );
+            .querySelectorAll('.desc-box-contents');
+          const activityContentsIcons = document
+            .getElementById('project')
+            .querySelectorAll('.icon-container');
+
+          _forEach(activityContents, (content, index) => {
+            setTimeout(() => {
+              content.style.visibility = 'visible';
+              content.classList.add(
+                'animate__animated',
+                'animate__fadeInRight',
+                'animate__slow'
+              );
+            }, 200 * index);
+          });
+
+          _forEach(activityContentsIcons, (content, index) => {
+            setTimeout(() => {
+              content.classList.add(
+                'animate__animated',
+                'animate__bounce',
+                'animate__slow'
+              );
+            }, 200 * index);
           });
         }
       },
-      { threshold: [0.5] }
+      { threshold: [0.1, 0.5] }
     );
 
     observer.observe(document.querySelector('#project'));

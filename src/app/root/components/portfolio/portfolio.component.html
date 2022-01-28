@@ -217,7 +217,7 @@
             </div>
 
             <div class="skill-inner-sub-container">
-                <mat-divider></mat-divider>
+                <mat-divider style="margin-bottom: 10px;"></mat-divider>
                 <h2>Knowledge</h2>
 
                 <div fxLayout="column" class="skill-bar-container">
@@ -334,14 +334,17 @@
                             </div>
 
                             <div class="desc-box">
-                                <h2 class="desc-box-text" fxLayoutAlign="start center">
-                                    <span>{{item.Title}}</span>
-                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
-                                    </mat-icon>
-                                </h2>
-                                <p class='desc-box-text' *ngFor="let text of item.Description">
-                                    {{text}}
-                                </p>
+                                <mat-card style="visibility: hidden; font-family: GenshinToolsFont !important; color: #3d3d3d;" class="desc-box-contents">
+                                    <h2 class="desc-box-text" fxLayoutAlign="space-between center">
+                                        <span>{{item.Title}}</span>
+                                        <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
+                                        </mat-icon>
+                                    </h2>
+                                    <mat-divider style="margin: 10px 0px;" inset></mat-divider>
+                                    <p class='desc-box-text' *ngFor="let text of item.Description">
+                                        {{text}}
+                                    </p>
+                                </mat-card>
                             </div>
                         </div>
                     </div>
@@ -368,14 +371,17 @@
                             </div>
 
                             <div class="desc-box">
-                                <h2 class="desc-box-text" fxLayoutAlign="start center">
-                                    <span>{{item.Title}}</span>
-                                    <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
-                                    </mat-icon>
-                                </h2>
-                                <p class='desc-box-text' *ngFor="let text of item.Description">
-                                    {{text}}
-                                </p>
+                                <mat-card style="visibility: hidden; font-family: GenshinToolsFont !important; color: #3d3d3d;" class="desc-box-contents">
+                                    <h2 class="desc-box-text" fxLayoutAlign="space-between center">
+                                        <span>{{item.Title}}</span>
+                                        <mat-icon *ngIf="item.Link" (click)="redreict(item.Link)" data-html2canvas-ignore="true">launch
+                                        </mat-icon>
+                                    </h2>
+                                    <mat-divider style="margin: 10px 0px;" inset></mat-divider>
+                                    <p class='desc-box-text' *ngFor="let text of item.Description">
+                                        {{text}}
+                                    </p>
+                                </mat-card>
                             </div>
                         </div>
                     </div>
