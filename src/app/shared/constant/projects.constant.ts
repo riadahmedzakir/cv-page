@@ -1,5 +1,21 @@
 export const ProjectList = [
   {
+    Title: 'Amberg Technologies',
+    Description: [
+      'Amberg Technologies is a globally recognized leader in providing railway and tunnel survey solutions. One of its many offerings is the Railtrack survey and analysis. Developed an IOT solution that collects data while inspecting rail tracks using trolley, amu and gnss sensors and translate the defects of the track based on the data, and rendering the data on the tablet for visualization. The tablet app is used for recording various events, identifying defects on track, which is later used to take corrective and preventive actions based on the inspection.'
+    ],
+    Icon: 'stacked_line_chart',
+    Link: '',
+  },
+  {
+    Title: 'Mister Loo',
+    Description: [
+      'Mister Loo designs, constructs and manages public toilet facilities through its tech- enabled service platform at high footfall locations in Asia. Mister Loo has developed a tech-enabled service platform offering an enjoyable customer experience meeting the highest cleanliness standards while ensuring diversity and equality along the entire value chain, regardless of race, gender, or nationality. The ERP application ranges from collecting usage data to visualize day to day revenue to complex customer relation manager that are but not limited to employee management, task manager, calendar etc.'
+    ],
+    Icon: 'shower',
+    Link: '',
+  },
+  {
     Title: 'Private Wealth Solution',
     Description: [
       'Developed a digital partner portal for a Swiss-based Private Wealth Solutions company, creating a paperless system for partner banks. Solutions included digital forms, e-signature implementations, document management, communications etc.',
