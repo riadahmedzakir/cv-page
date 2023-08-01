@@ -20,12 +20,23 @@
     gtag('config', 'UA-196959085-2');
   </script>
 
+  <script>
+    if (navigator.serviceWorker) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("serviceWorker.js")
+          .then((reg) => console.log("service worker registered"))
+          .catch((err) => console.log(`Here is the error: ${err}`));
+      });
+    }
+  </script>
+
   <link rel="stylesheet" href="assets/external-css/animate.css" />
 </head>
 
 <body class="mat-typography">
   <app-root-default></app-root-default>
   <!-- <app-portfolio></app-portfolio> -->
-<script src="runtime.5676d73c49bb528a32a6.js" defer></script><script src="polyfills.5e0ce2c1a99c8658e3f9.js" defer></script><script src="styles.d151df304f9d35da5b54.js" defer></script><script src="main.f5eecb60454ef823a7f1.js" defer></script></body>
+<script src="runtime.5676d73c49bb528a32a6.js" defer></script><script src="polyfills.5e0ce2c1a99c8658e3f9.js" defer></script><script src="styles.d151df304f9d35da5b54.js" defer></script><script src="main.9af973c20964580cda91.js" defer></script></body>
 
 </html>

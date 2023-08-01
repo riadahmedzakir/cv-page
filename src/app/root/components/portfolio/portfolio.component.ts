@@ -69,11 +69,13 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   projectList = ProjectList;
   toolList = ToolList;
 
+  isGithubContributionLoading: boolean = true;
+
   constructor(
     private router: Router,
     private rootService: RootService,
     private analyticsService: AnalyticsService
-  ) {}
+  ) { }
 
   openSocial(type: string): void {
     window.open(this.socialLinks[type], '_blank').focus();
@@ -315,11 +317,11 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     //   .subscribe((response) => {
     //     console.log(response);
     //   });
-
     GitHubCalendar('.calendar', 'riadahmedzakir', {
       responsive: true,
       tooltips: true,
     }).then(() => {
+      this. isGithubContributionLoading = false;
       document
         .getElementById('user-activity-overview')
         .querySelectorAll('a')
@@ -328,7 +330,10 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
           elem.setAttribute('href', 'https://github.com' + currentLink);
           elem.setAttribute('target', '_blank');
         });
-    });
+    })
+      .catch(() => {
+        this. isGithubContributionLoading = true;
+      });
   }
 
   ngOnInit(): void {
